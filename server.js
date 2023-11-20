@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+app.all('*',(req, res) => {
+  res.status(404).send(`La ruta  ${req.url} utilizando el método ${req.method} no está disponible`)
+})
+
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
