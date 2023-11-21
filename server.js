@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
 import routerUpload from "./routers/upload.router.js";
+import routerCarrito from "./routers/carrito.router.js";
 
 //Configuraciones
 const app = express();
@@ -31,8 +32,9 @@ app.use(express.json()); // Decodificar el body enviado desde un JSON
 app.use(cors({ corsConfig }));
 
 //  Rutas
-app.use('/api/productos', routerProductos);
-app.use('/api/upload',routerUpload)
+app.use('/api/productos', routerProductos)
+app.use('/api/upload', routerUpload)
+app.use('/api/carritos', routerCarrito)
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
