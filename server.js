@@ -3,6 +3,7 @@ import routerProductos from "./routers/productos.router.js";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
+import routerUpload from "./routers/upload.router.js";
 
 //Configuraciones
 const app = express();
@@ -30,7 +31,8 @@ app.use(express.json()); // Decodificar el body enviado desde un JSON
 app.use(cors({ corsConfig }));
 
 //  Rutas
-app.use("/api/productos", routerProductos);
+app.use('/api/productos', routerProductos);
+app.use('/api/upload',routerUpload)
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
