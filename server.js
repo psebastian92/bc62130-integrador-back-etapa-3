@@ -2,9 +2,9 @@ import express from "express";
 import routerProductos from "./routers/productos.router.js";
 import cors from "cors";
 import "dotenv/config";
-import mongoose from "mongoose";
 import routerUpload from "./routers/upload.router.js";
 import routerCarrito from "./routers/carrito.router.js";
+import handleConnection from "./utils/handleConnection.js";
 
 //Configuraciones
 const app = express();
@@ -15,16 +15,8 @@ const corsConfig = {
 
 // 1.CONEXIÓN MONGODB
 
-const conectar = async () => {
-  try {
-    await mongoose.connect(process.env.URI_MLOCAL);
-    console.log('Conexión a Mongo realizada con éxito!');
-  } catch (error) {
-    console.log('Error al conectar a MongoDB', error);
-  }
-};
-
-conectar()
+handleConnection(process.env.URI_MLOCAL)
+// URI_MREMOTA
 
 // Middlewars
 app.use(express.urlencoded({ extended: true })); // Decofificar el body enviado desde un formulario
