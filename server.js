@@ -10,7 +10,7 @@ import handleConnection from "./utils/handleConnection.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 const corsConfig = {
-  origin: "http://localhost:2222", // O colocar sino 127.0.0.1:2222
+  origin: process.env.URL_FRONT_CORS, // O colocar sino 127.0.0.1:2222
 };
 
 // 1.CONEXIÓN MONGODB
@@ -27,10 +27,6 @@ app.use(cors({ corsConfig }));
 app.use('/api/productos', routerProductos)
 app.use('/api/upload', routerUpload)
 app.use('/api/carritos', routerCarrito)
-
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 
 app.all("*", (req, res) => {
   res
