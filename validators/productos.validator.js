@@ -21,10 +21,8 @@ const productoUpdateValidator = [
         .isMongoId()
         .withMessage('Envío información incorrecta para la actualización'),
     check('nombre')
-        .optional()
         .notEmpty()
-        .withMessage('El nombre es requerido')
-        .trim(),
+        .withMessage('El nombre es requerido'),
     productoMiddleware
 ]
 
