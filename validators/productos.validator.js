@@ -1,4 +1,4 @@
-import { check } from "express-validator";
+import { check, param } from "express-validator";
 import productoMiddleware from "../middlewares/productos.middleware.js";
 
 const productoDeleteValidator = [
@@ -29,10 +29,12 @@ const productoUpdateValidator = [
 ]
 
 const productoReadOneValidator = [
-    check('id')
-        .isMongoId()
-        .withMessage('Envío información incorrecta para la lectura de un producto'),
-    productoMiddleware
+    param('id')
+    .optional()
+    .isMongoId()
+    .withMessage('Envío información incorrecta para la lectura de un producto'),
+
+productoMiddleware
 ]
 
 export default {
