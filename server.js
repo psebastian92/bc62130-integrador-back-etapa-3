@@ -28,7 +28,7 @@ app.use(express.json()) // Decodificar el body enviado desde un json
 app.use(cors(corsConfig))
 
 // ! Rutas
-app.use('/api/productos', routerProductos)
+app.use('/api/productos/', routerProductos)
 app.use('/api/upload', routerUpload)
 app.use('/api/carritos', routerCarrito)
 

@@ -6,6 +6,7 @@ const guardarCarrito = async (req, res) => {
     try {
         const carritoGuardado = await models.crearCarrito(carrito)
         res.status(200).json(carritoGuardado)
+        // console.log('Se guardo correctamente en la coleccion "carritos"!')
     } catch (error) {
         console.log('No se pudo guardar el carrito', error)
         res.status(500).send('No se pudo guardar el carrito')

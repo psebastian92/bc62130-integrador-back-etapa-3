@@ -50,7 +50,7 @@ const actualizarProducto = async (req, res) => {
 const borrarProducto = async (req, res) => {
     const id = req.params.id // ObjectID
 
-    console.log(id)
+  //  console.log(id)
 
     try {
         const productoBorrado = await models.eliminarProducto(id)
