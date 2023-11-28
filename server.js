@@ -18,8 +18,8 @@ const corsConfig = {
 
 // ! CONEXIÓN MONGODB
 
-handleConnection(process.env.URI_MLOCAL)
-//handleConnection(process.env.URI_MREMOTA)
+// handleConnection(process.env.URI_MLOCAL)
+handleConnection(process.env.URI_MREMOTA)
 
 // ! Middlewares
 app.use(express.static(path.join('public')))
@@ -28,7 +28,7 @@ app.use(express.json()) // Decodificar el body enviado desde un json
 app.use(cors(corsConfig))
 
 // ! Rutas
-app.use('/api/productos/', routerProductos)
+app.use('/api/productos', routerProductos)
 app.use('/api/upload', routerUpload)
 app.use('/api/carritos', routerCarrito)
 
